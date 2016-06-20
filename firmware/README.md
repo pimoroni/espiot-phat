@@ -18,4 +18,6 @@ this python script resets the ESP8266. It is usually used to bring the chip out 
 
 * flash-mp-firmware.sh
 
-this shell script downloads and flashes the latest ESP8266 micropython firmware.
+this shell script downloads and flashes the latest ESP8266 micropython firmware. The firmware itself is pulled from http://www.kaltpost.de/~wendlers/micropython/ and is an unofficial nightly build. Please ensure you review the information in the README available there for further details.
+
+Disclaimer: all tools and utilities included herein should be safe to use and cause no harm to your hardware. We however can take no responsibilities should something untowards occur in the process of using them. Use at your own risk!
