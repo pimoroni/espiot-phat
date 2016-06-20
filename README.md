@@ -20,4 +20,4 @@ We have put together a collection of tools to help you flash the ESP8266 on boar
 
 # Acknowledgement
 
-Thanks to Richard Hayler, Paul Byford, Stefan Wendler and Andrew Cross for indirectly contributing to the utilities and documentation included in this repository.
+Thanks to Richard Hayler, Paul Byford, Stefan Wendler, Fredrik Ahlberg and Andrew Cross for indirectly contributing to the utilities and documentation included in this repository.

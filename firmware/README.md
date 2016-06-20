@@ -20,4 +20,6 @@ this python script resets the ESP8266. It is usually used to bring the chip out 
 
 this shell script downloads and flashes the latest ESP8266 micropython firmware. The firmware itself is pulled from http://www.kaltpost.de/~wendlers/micropython/ and is an unofficial nightly build. Please ensure you review the information in the README available there for further details.
 
+Note that all of these utilties require esptool to be installed. You may grab the latest version from: https://github.com/themadinventor/esptool
+
 Disclaimer: all tools and utilities included herein should be safe to use and cause no harm to your hardware. We however can take no responsibilities should something untowards occur in the process of using them. Use at your own risk!
