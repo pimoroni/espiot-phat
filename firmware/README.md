@@ -16,6 +16,10 @@ this python script puts the ESP8266 into programming mode and exits. It can be u
 
 this python script resets the ESP8266. It is usually used to bring the chip out of programming mode, but it can be called whenever you'd like to reboot the board without physically disconnecting the board.
 
+* flash-at-firmware.sh
+
+this shell script flashes the AT firmware originally found on the chip, or a newer version, depending on when you acquired the ESP IoT pHAT. It is useful either to return to the AT firmware after trying an alternative, or to upgrade the firmware. In the later case, check what your current firmware version is so as to ensure you will not downgrade it instead (in case the AT firmware in this repository is behind production)!
+
 * flash-mp-firmware.sh
 
 this shell script downloads and flashes the latest ESP8266 micropython firmware. The firmware itself is pulled from http://www.kaltpost.de/~wendlers/micropython/ and is an unofficial nightly build. Please ensure you review the information in the README available there for further details.
