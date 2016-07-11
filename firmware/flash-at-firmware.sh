@@ -11,12 +11,6 @@ echo "Erasing flash"
 esptool.py -p /dev/ttyAMA0 erase_flash
 sleep 1
 
-# chip info
-esptool.py -p /dev/ttyAMA0 read_mac
-esptool.py -p /dev/ttyAMA0 chip_id
-esptool.py -p /dev/ttyAMA0 flash_id
-sleep 1
-
 # programming flash
 python ./espwrite.py
 sleep 1
