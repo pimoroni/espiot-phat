@@ -12,7 +12,7 @@ python ./espwrite.py
 sleep 1
 echo "Erasing flash"
 esptool.py -p /dev/ttyAMA0 erase_flash
-sleep 5
+sleep 1
 
 # programming flash
 python ./espwrite.py
@@ -22,10 +22,5 @@ esptool.py -p /dev/ttyAMA0 -b 460800 write_flash --flash_size=8m 0 mp-esp8266-fi
 
 # resetting chip
 python ./espreset.py
-
-# chip info on exit
-esptool.py -p /dev/ttyAMA0 read_mac
-esptool.py -p /dev/ttyAMA0 chip_id
-esptool.py -p /dev/ttyAMA0 flash_id
 
 exit 0
