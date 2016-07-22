@@ -26,7 +26,7 @@ newline() {
 }
 
 check_network() {
-    sudo ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && return 0 || return 1
+    sudo ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` &> /dev/null && return 0 || return 1
 }
 
 # download firmware if required
