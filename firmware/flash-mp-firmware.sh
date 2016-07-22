@@ -31,21 +31,20 @@ check_network() {
 
 # download firmware if required
 
-if [ -f ./mp-esp8266-firmware-latest.bin ]; then
-    if check_network; then
-        rm -f ./mp-esp8266-firmware-latest.bin &> /dev/null
-        wget http://kaltpost.de/~wendlers/micropython/mp-esp8266-firmware-latest.bin
-    else
+if ! check_network; then
+    if [ -f ./mp-esp8266-firmware-latest.bin ]; then
         echo "You don't appear to be connected to the internet, but we can use a local file"
         if ! confirm "Do you wish to continue?"; then
             echo "Aborting..."
             exit 1
         fi
-    fi
-else
-    warning "You don't appear to be connected to the internet, please check your connection and try again!"
+    else
+        warning "You don't appear to be connected to the internet, please check your connection and try again!"
     echo "Aborting..."
     exit 1
+else
+    rm -f ./mp-esp8266-firmware-latest.bin &> /dev/null
+    wget http://kaltpost.de/~wendlers/micropython/mp-esp8266-firmware-latest.bin
 fi
 
 # erasing flash
