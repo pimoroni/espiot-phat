@@ -40,8 +40,9 @@ if ! check_network; then
         fi
     else
         warning "You don't appear to be connected to the internet, please check your connection and try again!"
-    echo "Aborting..."
-    exit 1
+        echo "Aborting..."
+        exit 1
+    fi
 else
     rm -f ./mp-esp8266-firmware-latest.bin &> /dev/null
     wget http://kaltpost.de/~wendlers/micropython/mp-esp8266-firmware-latest.bin
