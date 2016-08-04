@@ -29,37 +29,23 @@ check_network() {
     sudo ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` &> /dev/null && return 0 || return 1
 }
 
-# download firmware if required
-
-if [ -f ./at-esp8266-firmware-latest.bin ]; then
-    newline
-    echo "AT firmware found!"
-else
-    newline
-    warning "AT firmware not found!"
-    echo "Aborting..."
-    exit 1
-fi
-
 # erasing flash
 
-echo "Ready to flash firmware"
-if confirm "Would you like to erase the chip first?"; then
+newline
+warning "This script will erase the ESP8266 chip"
+warning "no new firmware will be flashed!"
+newline
+if confirm "Would you like to continue?"; then
     newline
     python ./espwrite.py
     sleep 1
     echo "Erasing flash"
     esptool.py -p /dev/ttyAMA0 erase_flash
     sleep 1
+else
+    echo "Aborting!"
+    exit 1
 fi
-
-# programming flash
-
-newline
-python ./espwrite.py
-sleep 1
-echo "Writing flash"
-esptool.py -p /dev/ttyAMA0 -b 115200 write_flash --flash_size=8m 0 at-esp8266-firmware-latest.bin
 
 # resetting chip
 
