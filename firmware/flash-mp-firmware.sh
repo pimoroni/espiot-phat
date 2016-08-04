@@ -31,6 +31,7 @@ check_network() {
 
 # download firmware if required
 
+newline
 if ! check_network; then
     if [ -f ./mp-esp8266-firmware-latest.bin ]; then
         echo "You don't appear to be connected to the internet, but we can use a local file"
@@ -44,20 +45,27 @@ if ! check_network; then
         exit 1
     fi
 else
+    echo "Downloading firmware"
+    newline
     rm -f ./mp-esp8266-firmware-latest.bin &> /dev/null
     wget http://kaltpost.de/~wendlers/micropython/mp-esp8266-firmware-latest.bin
 fi
 
 # erasing flash
 
-python ./espwrite.py
-sleep 1
-echo "Erasing flash"
-esptool.py -p /dev/ttyAMA0 erase_flash
-sleep 1
+echo "Ready to flash firmware"
+if confirm "Would you like to erase the chip first?"; then
+    newline
+    python ./espwrite.py
+    sleep 1
+    echo "Erasing flash"
+    esptool.py -p /dev/ttyAMA0 erase_flash
+    sleep 1
+fi
 
 # programming flash
 
+newline
 python ./espwrite.py
 sleep 1
 echo "Writing flash"
@@ -66,5 +74,6 @@ esptool.py -p /dev/ttyAMA0 -b 115200 write_flash --flash_size=8m 0 mp-esp8266-fi
 # resetting chip
 
 python ./espreset.py
+newline
 
 exit 0
