@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mpbinfile="esp8266-20160809-v1.8.3.bin"
+
 confirm() {
     if [ "$FORCE" == '-y' ]; then
         true
@@ -48,7 +50,8 @@ else
     echo "Downloading firmware"
     newline
     rm -f ./mp-esp8266-firmware-latest.bin &> /dev/null
-    wget http://kaltpost.de/~wendlers/micropython/mp-esp8266-firmware-latest.bin
+    wget http://micropython.org/resources/firmware/$mpbinfile
+    mv ./$mpbinfile ./mp-esp8266-firmware-latest.bin
 fi
 
 # erasing flash
