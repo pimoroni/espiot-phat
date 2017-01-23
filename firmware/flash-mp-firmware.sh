@@ -15,12 +15,25 @@ confirm() {
     fi
 }
 
+prompt() {
+        read -r -p "$1 [y/N] " response < /dev/tty
+        if [[ $response =~ ^(yes|y|Y)$ ]]; then
+            true
+        else
+            false
+        fi
+}
+
 success() {
-    echo "$(tput setaf 2)$1$(tput sgr0)"
+    echo -e "$(tput setaf 2)$1$(tput sgr0)"
+}
+
+inform() {
+    echo -e "$(tput setaf 6)$1$(tput sgr0)"
 }
 
 warning() {
-    echo "$(tput setaf 1)$1$(tput sgr0)"
+    echo -e "$(tput setaf 1)$1$(tput sgr0)"
 }
 
 newline() {
@@ -28,7 +41,7 @@ newline() {
 }
 
 check_network() {
-    sudo ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` &> /dev/null && return 0 || return 1
+    sudo ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3 | head -n 1` &> /dev/null && return 0 || return 1
 }
 
 # download firmware if required
