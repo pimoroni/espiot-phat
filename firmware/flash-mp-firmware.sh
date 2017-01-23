@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mpbinfile="esp8266-20160809-v1.8.3.bin"
+mpbinfile="esp8266-20170108-v1.8.7.bin"
 
 confirm() {
     if [ "$FORCE" == '-y' ]; then
@@ -72,7 +72,7 @@ newline
 python ./espwrite.py
 sleep 1
 echo "Writing flash"
-esptool.py -p /dev/ttyAMA0 -b 115200 write_flash --flash_size=8m 0 mp-esp8266-firmware-latest.bin
+esptool.py -p /dev/ttyAMA0 -b 115200 write_flash --flash_size=detect 0 mp-esp8266-firmware-latest.bin
 
 # resetting chip
 
