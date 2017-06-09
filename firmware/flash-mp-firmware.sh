@@ -1,6 +1,7 @@
 #!/bin/bash
 
-mpbinfile="esp8266-20170108-v1.8.7.bin"
+mpservers="http://micropython.org/resources/firmware"
+mpbinfile="esp8266-20170526-v1.9.bin"
 
 confirm() {
     if [ "$FORCE" == '-y' ]; then
@@ -63,7 +64,7 @@ else
     echo "Downloading firmware"
     newline
     rm -f ./mp-esp8266-firmware-latest.bin &> /dev/null
-    wget http://micropython.org/resources/firmware/$mpbinfile
+    curl -O $mpservers/$mpbinfile
     mv ./$mpbinfile ./mp-esp8266-firmware-latest.bin
 fi
 
