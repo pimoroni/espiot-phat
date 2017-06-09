@@ -1,18 +1,32 @@
 # ESP IoT pHAT
+https://shop.pimoroni.com/products/esp8266-phat
 
-This repository is a collection of tools and utility for the ESP IoT pHAT, an ESP8266 based breakout board for the Raspberry Pi. More details can be found at: https://shop.pimoroni.com/products/esp8266-phat
+This repository presents a collection of tools and utility for the ESP IoT pHAT, an ESP8266 based breakout board for the Raspberry Pi.
 
-# Installing
+## Installing
 
-We've created a convenient installer script that will install everything you need to get started with the ESP IoT. To run it fire up Terminal which you'll find in Menu -> Accessories -> Terminal on your Raspberry Pi desktop like so:
+### Full install (recommended):
 
-![Finding the terminal](terminal.jpg)
+We've created an easy installation script that will install all pre-requisites and get your Scroll pHAT HD
+up and running with minimal efforts. To run it, fire up Terminal which you'll find in Menu -> Accessories -> Terminal
+on your Raspberry Pi desktop, as illustrated below:
 
-In the new terminal window type the following and follow the instructions:
+![Finding the terminal](http://get.pimoroni.com/resources/github-repo-terminal.png)
+
+In the new terminal window type the command exactly as it appears below (check for typos) and follow the on-screen instructions:
 
 ```bash
-curl -sS https://get.pimoroni.com/iotphat | bash
+curl https://get.pimoroni.com/espiotphat | bash
 ```
+
+Alternatively, on Raspbian, you can download the `pimoroni-dashboard` and install your product by browsing to the relevant entry:
+
+```bash
+sudo apt-get install pimoroni
+```
+(you will find the Dashboard under 'Accessories' too, in the Pi menu - or just run `pimoroni-dashboard` at the command line)
+
+If you choose to download firmwares you'll find them in `/home/pi/Pimoroni/espiotphat/`.
 
 # Firmware flashing
 
