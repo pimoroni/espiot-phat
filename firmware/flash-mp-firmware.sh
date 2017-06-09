@@ -70,7 +70,7 @@ fi
 
 # erasing flash
 
-echo "Ready to flash firmware"
+echo -e "\nReady to flash firmware\n"
 if confirm "Would you like to erase the chip first?"; then
     newline
     python ./espwrite.py
