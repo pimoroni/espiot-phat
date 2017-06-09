@@ -29,7 +29,7 @@ If you choose to download firmwares you'll find them in `/home/pi/Pimoroni/espio
 
 ## Important note
 
-The Raspberry Pi 3 and Raspberry Pi Zero W hijack the main UART interface to drive the bluetooth chip. This is problematic as  timing in communication is critical for programming microcontrolers over serial and the so-called mini-UART, active over the GPIO, leaves much to be desired in this respect.
+The Raspberry Pi 3 and Raspberry Pi Zero W hijack the main UART interface to drive their on-board bluetooth chip. This is problematic as timing in communication is critical for programming microcontrollers over serial and the so-called mini-UART, active over the GPIO by default, leaves much to be desired in this respect.
 
 If you ran the above one-line installer you should be all set, but if you decided to manually set up your tool chain then you will want to ensure that the correct UART interface is used for communication with your microcontroller. There are numerous ways to do that, but the easiest is to load a device tree overlay that disables bluetooth altogether, and switches UART communication over the GPIO to the main interface.
 
