@@ -7,8 +7,7 @@ This repository presents a collection of tools and utility for the ESP IoT pHAT,
 
 ### Full install (recommended):
 
-We've created an easy installation script that will install all pre-requisites and get your Scroll pHAT HD
-up and running with minimal efforts. To run it, fire up Terminal which you'll find in Menu -> Accessories -> Terminal
+We've created an easy installation script that will install all pre-requisites and get your ESP IoT pHAT up and running with minimal efforts. To run it, fire up Terminal which you'll find in Menu -> Accessories -> Terminal
 on your Raspberry Pi desktop, as illustrated below:
 
 ![Finding the terminal](http://get.pimoroni.com/resources/github-repo-terminal.png)
@@ -28,10 +27,22 @@ sudo apt-get install pimoroni
 
 If you choose to download firmwares you'll find them in `/home/pi/Pimoroni/espiotphat/`.
 
-# Firmware flashing
+## Important note
+
+The Raspberry Pi 3 and Raspberry Pi Zero W hijack the main UART interface to drive the bluetooth chip. This is problematic as  timing in communication is critical for programming microcontrolers over serial and the so-called mini-UART, active over the GPIO, leaves much to be desired in this respect.
+
+If you ran the above one-line installer you should be all set, but if you decided to manually set up your tool chain then you will want to ensure that the correct UART interface is used for communication with your microcontroller. There are numerous ways to do that, but the easiest is to load a device tree overlay that disables bluetooth altogether, and switches UART communication over the GPIO to the main interface.
+
+To do so, add the following to your `/boot/config.txt` file:
+
+```
+dtoverlay=pi3-disable-bt
+```
+
+## Firmware flashing
 
 We have put together a collection of tools to help you flash the ESP8266 on board of the ESP IoT pHAT in the firmware folder. Check out the README in that location for details!
 
-# Acknowledgement
+## Acknowledgement
 
 Thanks to Richard Hayler, Paul Byford, Stefan Wendler, Fredrik Ahlberg and Andrew Cross for indirectly contributing to the utilities and documentation included in this repository.
